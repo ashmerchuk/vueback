@@ -1,9 +1,11 @@
 <template>
-    <div v-for="person in people" :key="person.id">
+    <div class="card inline" v-for="person in people" :key="person.id">
         <h2>{{person.firstName}}</h2>
+        <button class="btn red">Delete</button>
     </div>
     <div>
-        <button class="btn" @click="$emit('load')">Load the people</button>
+
+        <!-- <button class="btn" @click="$emit('load')">Load the people</button> -->
     </div>
 </template>
 
@@ -14,11 +16,22 @@
     }
 </script>
 
-<style>
+<style scope>
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap');
 
 * {
     box-sizing: border-box;
+}
+.inline{
+    display: flex;
+    justify-content: space-between;
+    align-item: center;
+}
+.btn.red{
+    background: #e53935;
+    color: #fff;
+    border-color: #e53935;
+    font-weight: 300;
 }
 
 body {
@@ -52,7 +65,10 @@ a {
 }
 
 h1,
-h2,
+h2{
+    display: flex;
+    align-item: center;
+}
 h3,
 h4,
 h5,

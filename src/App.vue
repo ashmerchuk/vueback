@@ -28,6 +28,9 @@ import axios from 'axios'
        people: []
      }
    },
+   mounted() {
+       this.loadPeople()
+   },
    methods: {
       async createPerson(){
       //this.people.push(this.name)
@@ -43,8 +46,12 @@ import axios from 'axios'
           firstName: this.name
         })
       })
+
       const firebaseData = await response.json()
-      console.log(firebaseData)
+          this.people.push({
+          firstName: this.name,
+          id: firebaseData.name
+      })
       this.name = ''
       }
     },
